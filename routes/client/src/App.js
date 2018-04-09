@@ -2,23 +2,24 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  state = {users: []}
-
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
-  }
-
+    getInitialState: function() {
+    return {
+      inputValue: ''
+    };
+  },
+  
   render() {
     return (
-      <div className="App">
-        <h1>Users</h1>
-        {this.state.users.map(user =>
-          <div key={user.id}>{user.username}</div>
-        )}
-      </div>
+       <input value={this.state.inputValue} onChange={this.updateInputValue}/>
+       <div>
+         Please enter {this.state.inputValue}s that you have watched before. Remember, the more entries you include, the more accurate your predictions will be!
+       </div>
     );
+  },
+    updateInputValue: function(evt) {
+    this.setState({
+      inputValue: evt.target.value
+    });
   }
 }
 
