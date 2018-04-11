@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html class = "repeatingBackground">
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/materialize.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <div class = "valign">
     <h1 class = "center-align"><%= title %></h1>
     <p class ="center-align">A media recommendation web app.</p>
+    <div class = "valign-wrapper">
     <div class = "container">
-        <div class = "row">
+        <div class = "center-block center-align row">
   		    <p>Recommend me a(n): 
                   <select name = "categories">
                       <option value = "movies">Movie!</option>
@@ -20,8 +23,10 @@
 	      </h3>
 	      <p class = "center-align">Remember that the more entries, you add the more accurate our recommendations will be.</p>
 	      <form id = "entries">
-	        <button type = "submit" class = "btn submit"></button>
+	        <button type = "submit" class = "btn submit">SUBMIT</button>
 	      </form>
+    </div>
+    </div>
     </div>
     <%-include partials/scripts.ejs %>
 </body>
