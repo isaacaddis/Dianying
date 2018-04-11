@@ -2,10 +2,27 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/materialize.min.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <h1 class = "center-align"><%= title %></h1>
+    <p class ="center-align">A media recommendation web app.</p>
+    <div class = "container">
+        <div class = "row">
+  		    <p>Recommend me a(n): 
+                  <select name = "categories">
+                      <option value = "movies">Movie!</option>
+                  </select>
+          </p>
+	      </div>
+	      <h3 class = "center-align">
+	          Enter some <span id="option"></span> that you've watched before
+	      </h3>
+	      <p class = "center-align">Remember that the more entries, you add the more accurate our recommendations will be.</p>
+	      <form id = "entries">
+	        <button type = "submit" class = "btn submit"></button>
+	      </form>
+    </div>
+    <%-include partials/scripts.ejs %>
+</body>
 </html>
