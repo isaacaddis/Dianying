@@ -7,7 +7,6 @@ h1,h2,h3,h4,h5,h6,p {
   color: white;
 }
 .repeatingBackground { 
-  background:  url(https://pa1.narvii.com/5947/657391603e428f20fcb61b6a71a189d64c3bde64_hq.gif) no-repeat center center fixed; 
-  background-size: cover;
-  overflow: hidden;
+background: rgb(34,193,195);
+background-size:cover;
 }

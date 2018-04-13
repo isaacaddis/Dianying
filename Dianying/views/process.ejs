@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class = "repeatingBackground">
+  <head>
+    <%- include partials/navbar.ejs %>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/materialize.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class = "valign">
+    <!--<p class ="center-align">A media recommendation web app.</p>-->
+    <div class = "valign-wrapper">
+    <div class = "container">
+        <div class = "center-block center-align row">
+  		    <p>Recommend me a(n): 
+          </p>
+          <div class = "input-field col s12 white">
+    	     <select id ="selection">
+              <option value="movies">Movie</option>
+              <option value="music">Song</option>
+            </select>            
+          </div>
+	      </div>
+	      <h3 class = "center-align">
+	          Enter some <span id="option"></span> that you've enjoyed before
+	      </h3>
+	      <p class = "center-align">Remember that the more entries, you add the more accurate our recommendations will be.</p>
+	      <form id = "entries">
+	        <button type = "submit" class = "btn submit">SUBMIT</button>
+	      </form>
+    </div>
+    </div>
+    </div>
+    <%-include partials/scripts.ejs %>
+    <script src="/javascripts/dianying.js"></script>
+</body>
+</html>
