@@ -29,9 +29,12 @@ router.post('/recommend', function(req, res, next) {
     });
     function dianying(namespace, thing) {
         var id = shortid.generate();
-        var namespace = this.namespace;
-        var thing = this.thing;
-        inputDB(id, namespace, thing)
+        console.log("ID: "+ String(id));
+        var namespace = namespace;
+        console.log("Namespace: " + namespace);
+        var thing = thing;
+        console.log("Thing: "+ thing);
+        inputDB(id, namespace, thing);
         output = retrieveDB();
         return process(id, namespace, output);
     }
@@ -41,10 +44,10 @@ router.post('/recommend', function(req, res, next) {
     }
 
     function process(id, namespace, retrieval) {
-        var id = this.id;
-        var namespace = this.namespace;
+        var id = id;
+        var namespace = namespace;
         ger.initialize_namespace(namespace);
-        var retrieval = this.retrieval;
+        var retrieval = retrieval;
         for (var i in retrieval) {
             if (retrieval[i][1] !== namespace) continue;
             // Do JSON processing
@@ -73,10 +76,11 @@ router.post('/recommend', function(req, res, next) {
     }
 
     function inputDB(id, namespace, thing) {
-        var id = this.id;
-        var namespace = this.namespace;
-        var query = "INSERT INTO entries (namespace, person, action, thing, expires_at) VALUES ?"
-        var values = [namespace, id, "likes", thing, "2020-06-06"]
+        var id = id;
+        var namespace = namespace;
+        var thing = thing;
+        var query = "INSERT INTO entries (namespace, person, action, thing, expires_at) VALUES ?";
+        var values = [namespace, id, "likes", thing, "2020-06-06"];
         con.query(query, [values], function(err, result) {
             if (err) throw err;
             console.log("Sucessful input.");
@@ -84,7 +88,7 @@ router.post('/recommend', function(req, res, next) {
     }
     var output = dianying(req.body.namespace, req.body.in);
     res.render('recommend', {
-        output: req.body.in
+        output: req.body.namespace
     });
 });
 module.exports = router;
