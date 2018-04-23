@@ -16,6 +16,14 @@ con.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
 });
+function dianying(namespace, thing){
+    var id = shortid.generate();
+    var namespace = this.namespace;
+    var thing = this.thing;
+    inputDB(id, namespace, thing)
+    output = retrieveDB();
+    return process(id,namespace,output);
+}
 function convertToJSON(str){
     return JSON.stringify(str);
 }
@@ -58,14 +66,7 @@ function inputDB(id, namespace, thing){
 /*
    Main function
 */
-function dianying(namespace, thing){
-    var id = shortid.generate();
-    var namespace = this.namespace;
-    var thing = this.thing;
-    inputDB(id, namespace, thing)
-    output = retrieveDB();
-    return process(id,namespace,output);
-}
+
 var router = express.Router();
 
 

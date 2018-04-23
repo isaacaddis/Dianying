@@ -12,17 +12,10 @@
     <!--<p class ="center-align">A media recommendation web app.</p>-->
     <div class = "valign-wrapper">
     <div class = "container">
-        <div class = "center-block center-align row">
-  		    <p>Recommend me a(n): 
-          </p>
-          <div class = "input-field col s12 white">
-    	     <select id ="selection">
-              <option value="" disabled selected>Choose your option</option>
-              <option value="movies">Movie</option>
-              <option value="music">Song</option>
-            </select>            
-          </div>
-	      </div>
+       <!-- <div class = "center-block center-align row">-->
+  		   <!-- <p>Recommend me a(n): -->
+       <!--   </p>-->
+	      <!--</div>-->
 	      <h3 class = "center-align">
 	          Enter some <span id="option"></span> that you've enjoyed before
 	      </h3>
@@ -30,10 +23,17 @@
 	     <center>
 	     <div class = "container">
 	      <form id = "entries" method = "POST" action = "/recommend" class = "center-block">
+          <div class = "input-field col s12 white">
+    	     <select id ="selection" name = "namespace">
+              <option value="" disabled selected>Choose your option (must)</option>
+              <option value="movies">Movie</option>
+              <option value="music">Song</option>
+            </select>            
+          </div>
 	        <div id = "special">
 	        <div class = "row">
 	            <div class = "col s6">
-	                <input type = "text" class = "input-field col s12 white">
+	                <input type = "text" name = "in" class = "input-field col s12 white">
 	            </div>
 	            <div class = "col s6">
 	                <a class = "white-text more">More</a>
