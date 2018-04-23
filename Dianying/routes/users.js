@@ -19,19 +19,23 @@ con.connect(function(err) {
 function convertToJSON(str){
     return JSON.stringify(str);
 }
-function process(retrieval){
+function process(id,namespace,retrieval){
+    var id = this.id;
+    var namespace = this.namespace;
+    ger.initialize_namespace(namespace);
     var retrieval = this.retrieval;
     for(var i in retrieval){
+        if(retrieval[i][1]!==namespace) continue;
         // Do JSON processing
-        ger.initialize_namespace(retrieval[i][1]);
         ger.events([{
-          namespace: retrieval[i][1],
+          namespace: namespace,
           person: retrieval[i][2],
           action: retrieval[i][3],
           thing: retrieval[i][4],
           expires_at: retrieval[i][5]
         }]);
     }
+    return ger.recommendations_for_person(namespace, id, {actions: {likes: 1}})
 }
 function retrieveDB(){
   var retrieve = "SELECT * FROM entries";
@@ -60,7 +64,7 @@ function dianying(namespace, thing){
     var thing = this.thing;
     inputDB(id, namespace, thing)
     output = retrieveDB();
-    process(output)
+    return process(id,namespace,output);
 }
 var router = express.Router();
 
