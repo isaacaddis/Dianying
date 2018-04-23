@@ -17,6 +17,7 @@
           </p>
           <div class = "input-field col s12 white">
     	     <select id ="selection">
+              <option value="" disabled selected>Choose your option</option>
               <option value="movies">Movie</option>
               <option value="music">Song</option>
             </select>            
@@ -25,7 +26,7 @@
 	      <h3 class = "center-align">
 	          Enter some <span id="option"></span> that you've enjoyed before
 	      </h3>
-	      <p class = "center-align">Remember that the more entries, you add the more accurate our recommendations will be.</p>
+	      <p class = "center-align">Remember that the more entries you add, the more accurate our recommendations will be.</p>
 	     <center>
 	     <div class = "container">
 	      <form id = "entries" method = "POST" action = "/recommend" class = "center-block">
